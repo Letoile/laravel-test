@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	//return View::make('hello');
-	return View::make("index");
-});
+Route::get('/', "HomeController@showWelcome");
+
+Route::any('/users/edit/{id}', array('as' => 'users.edit', "uses" => "UserController@edit"));
+
+Route::any('/users', array("as" => "users.index", "uses" => "UserController@index"));
